@@ -1,0 +1,117 @@
+---------------------WORKFLOW THE PROJECT------------------------
+
+📘 Project Title: IPL Match Win Probability Prediction
+
+
+1️⃣ DATA LOADING PHASE
+Objective: Import and read the datasets.
+Import required libraries: numpy, pandas, matplotlib, sklearn, etc.
+Load matches.csv and deliveries.csv using pandas.read_csv().
+Display top records and dataset dimensions to confirm successful loading.
+
+2️⃣ DATA EXPLORATION & CLEANING
+Objective: Prepare consistent, clean data.
+Display sample data to understand the structure and column information.
+Identify all unique team names and prepare a list of active IPL teams.
+Replace outdated team names:
+Delhi Daredevils → Delhi Capitals
+Deccan Chargers → Sunrisers Hyderabad
+Apply these replacements to both datasets (matches and deliveries).
+Remove all matches involving inactive or obsolete teams to maintain relevance.
+
+3️⃣ DATA FILTERING
+Objective: Ensure valid and fair data for training.
+Identify and remove all matches where the Duckworth-Lewis (D/L) method was applied, as these are adjusted or incomplete.
+Select only essential columns:
+match_id, city, winner, total_runs.
+
+4️⃣ DATA MERGING
+Objective: Combine match-level and delivery-level data.
+Merge matches_df and deliveries_df on match_id.
+Filter only second innings data (the model predicts from the second innings perspective).
+
+5️⃣ FEATURE ENGINEERING
+Objective: Create meaningful metrics for prediction.
+Feature	Description
+current_score	Cumulative runs scored so far
+runs_left	Remaining runs to win = Total Target − Current Score
+balls_left	Remaining balls = 126 − (Over × 6 + Ball)
+wickets_left	10 − cumulative dismissals
+current_rr	Current Run Rate = Current Score ÷ Overs Played
+required_rr	Required Run Rate = Runs Left ÷ Overs Remaining
+result	Binary output (1 = Win, 0 = Loss)
+All these features together form the model’s input space.
+
+6️⃣ FINAL DATASET CREATION
+Objective: Structure the final model input.
+Final columns used:
+['batting_team','bowling_team','city','runs_left','balls_left','total_runs_x','wickets_left','current_score','current_rr','required_rr','result']
+The dataset is shuffled randomly before training to ensure unbiased learning.
+
+7️⃣ MODEL PREPARATION
+Objective: Prepare data for machine learning.
+Separate data into:
+x → features, y → target (result)
+Split dataset into Training (70%) and Testing (30%) using train_test_split.
+
+8️⃣ DATA PREPROCESSING PIPELINE
+Objective: Handle categorical and numerical data efficiently.
+Use ColumnTransformer and OneHotEncoder for categorical variables:
+['batting_team', 'bowling_team', 'city']
+Integrate preprocessing and model training in a single Pipeline for clean execution.
+
+9️⃣ MODEL TRAINING
+Objective: Train the prediction model.
+Use Logistic Regression with solver 'liblinear'.
+Fit the pipeline using:
+pipe.fit(x_train, y_train)
+
+🔟 MODEL EVALUATION
+Objective: Evaluate model performance.
+Predict outcomes on test data (x_test).
+Measure performance using accuracy_score.
+Display accuracy as a percentage to reflect prediction reliability.
+
+1️⃣1️⃣ MATCH PROGRESS FUNCTION
+Objective: Predict over-wise win/lose probabilities.
+Define match_progress() function for a single match_id.
+Calculate:
+Win and lose probabilities using pipe.predict_proba().
+Runs and wickets after every over.
+Return a structured dataframe containing:
+runs_after_over, wickets_in_over, win, lose, end_of_over.
+
+1️⃣2️⃣ USER INPUT & EXECUTION
+Objective: Allow users to analyze any specific match.
+Prompt user to input match_id.
+Execute match_progress() to generate match predictions.
+Display tabular results showing runs, wickets, and probabilities.
+
+1️⃣3️⃣ VISUALIZATION
+Objective: Visualize match momentum and probability trends.
+Plot over-wise trends using matplotlib:
+Bar (Blue): Runs per Over
+Green Line: Win Probability
+Red Line: Lose Probability
+Yellow Line: Wickets per Over
+Add titles, legends, grids, and color codes for clarity.
+
+1️⃣4️⃣ MODEL EXPORT
+Objective: Save trained model for deployment.
+Serialize the trained pipeline using pickle:
+pickle.dump(pipe, open('pipe.pkl', 'wb'))
+Enables future use without retraining.
+🧭 OVERALL PROJECT FLOW
+Load Data
+Clean & Replace Team Names
+Filter Out Unwanted Matches
+Merge Datasets
+Generate Match-Level Metrics
+Build Final DataFrame
+Split Data
+Create Model Pipeline
+Train Logistic Regression
+Evaluate Accuracy
+Predict Match Progress
+Visualize Match Trends
+Export Model
