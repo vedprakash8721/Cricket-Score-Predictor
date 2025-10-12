@@ -15,14 +15,7 @@ cities = ['Hyderabad','Bangalore','Mumbai','Indore','Kolkata','Delhi',
           'Visakhapatnam','Pune','Raipur','Ranchi','Abu Dhabi',
           'Sharjah','Mohali','Bengaluru']
 
-# ----------------- Load Model -----------------
-
-# Get the directory of the current file (app.py)
-BASE_DIR = os.path.dirname(__file__)
-pipe_path = os.path.join(BASE_DIR, 'pipe.pkl')
-
-# Load the pickle model
-pipe = pickle.load(open(pipe_path, 'rb'))
+pipe = pickle.load(open("pipe.pkl", "rb"))
 
 
 
