@@ -39,7 +39,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 st.title("🏏 IPL Win Probability Predictor")
-st.markdown("Predict dynamic win chances for batting and bowling teams with sleek dark theme!")
+st.markdown("Predict dynamic win chances for batting and bowling teams")
 
 # ----------------- Input Sliders -----------------
 st.sidebar.header("Match Setup")
