@@ -16,8 +16,11 @@ cities = ['Hyderabad','Bangalore','Mumbai','Indore','Kolkata','Delhi',
           'Sharjah','Mohali','Bengaluru']
 
 # ----------------- Load Model -----------------
-pipe_path = os.path.join(os.path.dirname(__file__), 'pipe.pkl')
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # current folder of app.py
+pipe_path = os.path.join(BASE_DIR, 'pipe.pkl')         # ensures correct path
 pipe = pickle.load(open(pipe_path, 'rb'))
+
 
 # ----------------- Page Config -----------------
 st.set_page_config(
