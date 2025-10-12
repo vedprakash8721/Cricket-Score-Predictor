@@ -38,8 +38,8 @@ This project demonstrates how historical ball-by-ball data from IPL matches can 
 |----------------|-------------------------------------|
 | `pandas`       | Data manipulation                   |
 | `numpy`        | Numeric calculations                |
-| `matplotlib`   | (optional) Visualizations           |
-| `seaborn`      | (optional) Visualizations           |
+| `matplotlib`   | Visualizations           |
+| `seaborn`      | Visualizations           |
 | `scikit-learn` | Model training and evaluation       |
 | `streamlit`    | Interactive web dashboard           |
 
