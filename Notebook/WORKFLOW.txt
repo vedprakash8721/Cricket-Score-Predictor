@@ -1,4 +1,4 @@
----------------------WORKFLOW THE PROJECT------------------------
+---------------------WORKFLOW OF THE PROJECT------------------------
 
 📘 Project Title: IPL Match Win Probability Prediction
 
