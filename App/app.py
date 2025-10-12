@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import pandas as pd
+import os
 
 # ----------------- Data -----------------
 teams = ['Sunrisers Hyderabad','Mumbai Indians','Royal Challengers Bangalore',
@@ -14,7 +15,9 @@ cities = ['Hyderabad','Bangalore','Mumbai','Indore','Kolkata','Delhi',
           'Visakhapatnam','Pune','Raipur','Ranchi','Abu Dhabi',
           'Sharjah','Mohali','Bengaluru']
 
-pipe = pickle.load(open('App/pipe.pkl','rb'))
+# ----------------- Load Model -----------------
+pipe_path = os.path.join(os.path.dirname(__file__), 'pipe.pkl')
+pipe = pickle.load(open(pipe_path, 'rb'))
 
 # ----------------- Page Config -----------------
 st.set_page_config(
@@ -79,7 +82,7 @@ if st.sidebar.button("Predict Win Probability"):
 
 # ----------------- Footer -----------------
 st.markdown("""
-<div style='text-align: center; color: grey; margin-top: 40px;'>
+<div style='text-align: center; color: grey; margin-top: 60px;'>
 Developed by Abhishek Kushwaha | IPL Win Predictor Project
 </div>
 """, unsafe_allow_html=True)
