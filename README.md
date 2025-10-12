@@ -6,7 +6,7 @@ A machine learning project that predicts the **final score of an innings** in a 
 
 ## 📌 Project Overview
 
-This project demonstrates how historical ball-by-ball data from IPL matches can be used to train a **regression model** that predicts the final score of an ongoing innings. It leverages:
+This project demonstrates how historical ball-by-ball data from IPL matches can be used to train a **regression model** that predicts the final score of an ongoing innings. It leverages :
 
 - Data preprocessing with **Pandas**
 - Model building with **Scikit-learn**
