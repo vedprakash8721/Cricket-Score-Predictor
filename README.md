@@ -1,6 +1,6 @@
 # 🏏 Cricket Score Predictor (ML-based)
 
-A machine learning project that predicts the **final score of an innings** in a cricket match based on the current over and cumulative score. Built with Python and visualized using Streamlit.
+A Dynamic Cricket Match Predictor utilizing a trained Machine Learning model to deliver actionable, real-time win probability analysis. The system is initialized by specifying the two competing teams and the match venue, along with the First Innings Score. Its core strength lies in its adaptive prediction engine, which continuously adjusts and outputs the win probability for each team based on the evolving state of the second innings (current run rate, completed overs, and wickets down).
 
 ---
 
@@ -65,5 +65,4 @@ This project demonstrates how historical ball-by-ball data from IPL matches can 
 
 ### 1. Clone this repo
 ```bash
-git clone https://github.com/<your-username>/cricket-score-predictor.git
-cd cricket-score-predictor
+https://github.com/vedprakash8721/Cricket-Score-Predictor
